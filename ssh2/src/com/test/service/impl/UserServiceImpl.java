@@ -4,6 +4,8 @@ import com.test.bean.User;
 import com.test.dao.UserDAO;
 import com.test.service.UserService;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Lorin
@@ -29,5 +31,11 @@ public class UserServiceImpl implements UserService
 	public void save(User user)
 	{
 		this.userDAO.saveUser(user);
+	}
+
+	@Override
+	public List<User> findAll()
+	{
+		return this.userDAO.findAllUsers();  //To change body of implemented methods use File | Settings | File Templates.
 	}
 }

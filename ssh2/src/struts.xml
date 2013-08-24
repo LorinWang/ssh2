@@ -9,5 +9,10 @@
         <action name="saveUser" class="saveUserAction">
             <result name="success" type="redirect">listUser.action</result>
         </action>
+
+        <action name="listUser" class="listUserAction">
+            <result name="success">/list.jsp</result>
+        </action>
+
     </package>
 </struts>

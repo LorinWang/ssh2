@@ -2,6 +2,8 @@ package com.test.service;
 
 import com.test.bean.User;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Lorin
@@ -11,4 +13,5 @@ import com.test.bean.User;
 public interface UserService
 {
 	public void save(User user);
+	public List<User> findAll();
 }
