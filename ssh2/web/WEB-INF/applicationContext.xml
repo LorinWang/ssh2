@@ -50,4 +50,12 @@
     <bean id="removeUserAction" class="com.test.action.user.RemoveUserAction" scope="prototype">
         <property name="service" ref="userService"></property>
     </bean>
+
+    <bean id="updatePUserAction" class="com.test.action.user.UpdatePUser">
+        <property name="service" ref="userService"></property>
+    </bean>
+
+    <bean id="updateUserAction" class="com.test.action.user.UpdateUserAction" scope="prototype">
+        <property name="service" ref="userService"></property>
+    </bean>
 </beans>

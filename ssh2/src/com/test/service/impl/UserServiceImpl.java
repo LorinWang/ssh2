@@ -44,4 +44,16 @@ public class UserServiceImpl implements UserService
 	{
 		this.userDAO.removeUser(user);
 	}
+
+	@Override
+	public void update(User user)
+	{
+		this.userDAO.updateUser(user);
+	}
+
+	@Override
+	public User findById(Integer id)
+	{
+		return this.userDAO.findUserById(id);
+	}
 }
