@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close"
+          p:driverClass="com.mysql.jdbc.Driver"
+          p:jdbcUrl="jdbc:mysql://localhost:3306/ssh2"
+          p:user="root"
+          p:password="870211"
+          p:maxPoolSize="20"
+          p:minPoolSize="1"
+          p:initialPoolSize="1"
+          p:maxIdleTime="20"/>
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="mappingResources">
+            <list>
+                <value>com/test/bean/User.hbm.xml</value>
+            </list>
+        </property>
+
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
+            </props>
+        </property>
+    </bean>
+
+
+    <bean id="userDao" class="com.test.dao.impl.UserDAOImpl" scope="singleton">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"></ref>
+        </property>
+    </bean>
+
+    <bean id="userService" class="com.test.service.impl.UserServiceImpl" scope="singleton">
+        <property name="userDAO" ref="userDao"></property>
+    </bean>
+
+    <bean id="saveUserAction" class="com.test.action.user.SaveUserAction" scope="prototype">
+       <property name="service" ref="userService"></property>
+    </bean>
+</beans>

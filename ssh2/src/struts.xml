@@ -6,5 +6,8 @@
 
 <struts>
     <package name="ssh2" extends="struts-default">
+        <action name="saveUser" class="saveUserAction">
+            <result name="success" type="redirect">listUser.action</result>
+        </action>
     </package>
 </struts>

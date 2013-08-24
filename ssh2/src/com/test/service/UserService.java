@@ -1,5 +1,7 @@
 package com.test.service;
 
+import com.test.bean.User;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Lorin
@@ -8,5 +10,5 @@ package com.test.service;
  */
 public interface UserService
 {
-
+	public void save(User user);
 }
