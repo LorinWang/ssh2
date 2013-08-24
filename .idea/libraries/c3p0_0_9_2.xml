@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="c3p0-0.9.2">
+    <CLASSES>
+      <root url="jar://W:/jar/c3p0-0.9.2.1/lib/c3p0-0.9.2.1.jar!/" />
+      <root url="jar://W:/jar/c3p0-0.9.2.1/lib/c3p0-oracle-thin-extras-0.9.2.1.jar!/" />
+      <root url="jar://W:/jar/c3p0-0.9.2.1/lib/mchange-commons-java-0.2.3.4.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="file://W:/jar/c3p0-0.9.2.1/doc/apidocs" />
+      <root url="file://W:/jar/c3p0-0.9.2.1/doc/apidocs-oracle-thin" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>
