@@ -10,6 +10,17 @@
 <html>
 <head>
     <title></title>
+    <script type="text/javascript">
+
+    function del()
+    {
+        if(confirm("Are you sure?"))
+        {
+            return true;
+        }
+        return false;
+    }
+    </script>
 </head>
 <body>
     <h1>Users List</h1>
@@ -52,10 +63,10 @@
                     <s:property value="#us.age"/>
                 </td>
                 <td>
-                    delete
+                    <s:a href="deleteUser.action?user.id=%{#us.id}" onclick="return del();">delete</s:a>
                 </td>
                 <td>
-                    update
+                    <s:a href="updatePUser.action?user.id=%{#us.id}">update</s:a>
                 </td>
             </tr>
         </s:iterator>

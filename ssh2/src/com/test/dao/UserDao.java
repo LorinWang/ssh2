@@ -2,6 +2,8 @@ package com.test.dao;
 
 import com.test.bean.User;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Lorin
@@ -11,4 +13,6 @@ import com.test.bean.User;
 public interface UserDAO
 {
 	public void saveUser(User user);
+	public List<User> findAllUsers();
+	public void removeUser(User user);
 }

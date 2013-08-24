@@ -38,4 +38,10 @@ public class UserServiceImpl implements UserService
 	{
 		return this.userDAO.findAllUsers();  //To change body of implemented methods use File | Settings | File Templates.
 	}
+
+	@Override
+	public void delete(User user)
+	{
+		this.userDAO.removeUser(user);
+	}
 }

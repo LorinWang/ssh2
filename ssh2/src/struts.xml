@@ -14,5 +14,9 @@
             <result name="success">/list.jsp</result>
         </action>
 
+        <action name="deleteUser" class="removeUserAction">
+            <result name="success" type="redirect">listUser.action</result>
+        </action>
+
     </package>
 </struts>
