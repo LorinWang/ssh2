@@ -28,6 +28,9 @@
         </property>
     </bean>
 
+    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
 
     <bean id="userDao" class="com.test.dao.impl.UserDAOImpl" scope="singleton">
         <property name="sessionFactory">
@@ -35,9 +38,23 @@
         </property>
     </bean>
 
-    <bean id="userService" class="com.test.service.impl.UserServiceImpl" scope="singleton">
+    <bean id="userServiceTarget" class="com.test.service.impl.UserServiceImpl" scope="singleton">
         <property name="userDAO" ref="userDao"></property>
     </bean>
+
+    <bean id="userService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="target" ref="userServiceTarget"></property>
+        <property name="transactionManager" ref="transactionManager"></property>
+
+        <property name="transactionAttributes">
+            <props>
+                <prop key="find*">PROPAGATION_REQUIRED,readOnly</prop>
+                <prop key="*">PROPAGATION_REQUIRED</prop>
+            </props>
+
+        </property>
+    </bean>
+
 
     <bean id="saveUserAction" class="com.test.action.user.SaveUserAction" scope="prototype">
        <property name="service" ref="userService"></property>
